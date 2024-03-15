@@ -1,3 +1,22 @@
+body {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: 'Poppins', serif;
+  background-color: rgb(253, 253, 253);
+
+}
+
+body::-webkit-scrollbar {
+  display: none;
+}
+
+#mainTextElement {
+  flex: 1;
+}
+
 .home-p1 {
   background-color: rgb(247, 244, 244);
   width: 900px;
@@ -43,10 +62,10 @@
   background-color: rgb(246, 241, 241);
   padding: 10px;
   text-align: center;
-  position: fixed;
+  /*position: fixed;
   bottom: 0;
   left: 0;
-  right: 0;
+  right: 0;*/
   width: 100%;
 }
 
