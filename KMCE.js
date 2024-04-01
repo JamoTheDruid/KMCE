@@ -397,19 +397,48 @@ function toClients() {
   `;
 }
 
-function toPictures() {
-  document.querySelector('#mainTextElement').innerHTML = ` 
-  
-  <div class="pictures-title">
-  Pictures
-  </div>
-  <div class=".pictures-grid">
-    <div class="pictures-sub-grid">
-      <img>
-      </img>  
-      <div>
-      </div>
-    </div>
-  </div>
-  `;
+function login() {
+  document.querySelector('#mainTextElement').insertAdjacentHTML("beforebegin", `
+<div class="login">
+  <div class="loginTitle">Login</div>
+  <label>e-mail</label>
+  <input type="text">
+  <label>password</label>
+  <input type="text">
+</div>
+`);
+}
+
+const navbarEl = document.querySelector('.navbar');
+const navEl = document.querySelectorAll('.nav');
+const homeButEl = document.querySelector('.homeBut');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    navbarEl.classList.add('navbar-scrolled');
+    navEl.forEach(el => el.classList.add('nav-scrolled'));
+    homeButEl.classList.add('homeBut-scrolled')
+  } else if (window.scrollY <= 50) {
+    navbarEl.classList.remove('navbar-scrolled');
+    navEl.forEach(el => el.classList.remove('nav-scrolled'));
+    homeButEl.classList.remove('homeBut-scrolled');
+  }
+});
+
+window.addEventListener('mouseover', (e) => {
+  if (e.clientY <= 50) {
+    navbarEl.classList.add('navbar-scrolled');
+    navEl.forEach(el => el.classList.add('nav-scrolled'));
+    homeButEl.classList.add('homeBut-scrolled')
+  } else if (e.clientY > 50 && window.scrollY <= 50) {
+    navbarEl.classList.remove('navbar-scrolled');
+    navEl.forEach(el => el.classList.remove('nav-scrolled'));
+    homeButEl.classList.remove('homeBut-scrolled');
+  }
+});
+
+function logKey(e) {
+  screenLog.innerText = `
+    Screen X/Y: ${e.screenX}, ${e.screenY}
+    Client X/Y: ${e.clientX}, ${e.clientY}`;
 }
